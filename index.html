@@ -11,12 +11,15 @@
     <!-- Header organizado -->
     <header class="header">
         <div class="header__container">
-            <h1 class="header__title">The Best Speaker 2025</h1>
+            <div class="header__brand">
+                <img src="TBS-LOGOS_TBS-DESCRITIVO-BRANCO-e1747278275187-1024x300.png" alt="TBS Logo" class="header__logo">
+            </div>
             <nav class="header__nav">
                 <button onclick="showScenario('rejected-initial')" class="btn">🔴 Reprovado Seletiva</button>
+                <button onclick="showScenario('waiting-270-100')" class="btn btn--active">⏳ Aguarde</button>
                 <button onclick="showScenario('passed-270')" class="btn">🟠 Passou 270</button>
                 <button onclick="showScenario('passed-100')" class="btn">🟠 Passou 100</button>
-                <button onclick="showScenario('passed-20')" class="btn btn--active">🟢 Reality (Top 20)</button>
+                <button onclick="showScenario('passed-20')" class="btn">🟢 Reality (Top 20)</button>
                 <button onclick="showScenario('rejected-p1')" class="btn">🔴 Reprovado P1</button>
                 <button onclick="showScenario('rejected-p2')" class="btn">🔴 Reprovado P2</button>
             </nav>
@@ -25,53 +28,41 @@
 
     <!-- CENÁRIO 1: REPROVADO SELETIVA INICIAL -->
     <div id="rejected-initial" class="scenario">
-        <!-- Hero Section e Timeline em duas colunas -->
-        <section class="hero-timeline-container">
-            <!-- Coluna da esquerda - Hero -->
-            <div class="hero-column">
-                <div class="hero rejected-hero">
-                    <div class="hero-content">
-                        <h1 class="hero-title">INFELIZMENTE, NÃO FOI DESSA VEZ.</h1>
-                        <div class="hero-text">
-                            <p>A edição 2025 do The Best Speaker teve mais de XXXX inscrições. A disputa foi acirrada e foi muito difícil chegar às 270 palestras que avançaram para a próxima fase. Dessa vez, sua palestra não foi classificada. Sentimos muito.</p>
-                        </div>
+        <!-- Layout Fluido: Textos à esquerda, Conversão à direita -->
+        <section class="rejected-layout-container">
+            <!-- Coluna da Esquerda - Conteúdo Principal -->
+            <div class="rejected-content-column">
+                <div class="rejected-hero">
+                    <h1 class="rejected-title">INFELIZMENTE, NÃO FOI DESSA VEZ.</h1>
+                    <div class="rejected-text">
+                        <p>A edição 2025 do The Best Speaker teve mais de XXXX inscrições. A disputa foi acirrada e foi muito difícil chegar às 270 palestras que avançaram para a próxima fase. Dessa vez, sua palestra não foi classificada. Sentimos muito.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Coluna da direita - Timeline -->
-            <div class="timeline-column">
-                <div class="timeline">
-                    <div class="timeline-container">
-                        <div class="timeline-item stopped">
-                            <div class="timeline-icon">❌</div>
-                            <div class="timeline-content">
-                                <h3>Etapa 1: Seleção Inicial</h3>
-                                <p>Sua jornada foi concluída aqui</p>
-                            </div>
+            <!-- Coluna da Direita - Box de Conversão -->
+            <div class="rejected-conversion-column">
+                <div class="conversion-box">
+                    <div class="conversion-content">
+                        <div class="conversion-text">
+                            <p>Mas olha, já estamos começando o planejamento para o <strong>The Best Speaker 2026</strong>.</p>
+                            <p>E vamos ajudar todos os candidatos a se prepararem com antecedência.</p>
+                            <p>Se você quiser fazer parte desse movimento, assinale abaixo.</p>
+                            <p>Quem sabe, com um pouco mais de preparo e treinamento, sua palestra chegue mais longe ano que vem.</p>
                         </div>
-                        
-                        <div class="timeline-item locked">
-                            <div class="timeline-icon">🔒</div>
-                            <div class="timeline-content">
-                                <h3>Etapa 2: Classificatória P1 (Top 270)</h3>
-                                <p>Não alcançado</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item locked">
-                            <div class="timeline-icon">🔒</div>
-                            <div class="timeline-content">
-                                <h3>Etapa 3: Classificatória P2 (Top 100)</h3>
-                                <p>Não alcançado</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item locked">
-                            <div class="timeline-icon">🔒</div>
-                            <div class="timeline-content">
-                                <h3>Etapa 4: Reality TBS 2025 (Top 20)</h3>
-                                <p>Não alcançado</p>
+                        <div class="conversion-form">
+                            <h4>Você quer contar com nosso auxílio e participar do TBS 2026?</h4>
+                            <div class="conversion-radio-group">
+                                <label class="conversion-radio-option">
+                                    <input type="radio" name="tbs2026" value="sim">
+                                    <span class="conversion-radio-custom"></span>
+                                    <span class="conversion-radio-text">Sim</span>
+                                </label>
+                                <label class="conversion-radio-option">
+                                    <input type="radio" name="tbs2026" value="nao">
+                                    <span class="conversion-radio-custom"></span>
+                                    <span class="conversion-radio-text">Não</span>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -79,31 +70,6 @@
             </div>
         </section>
 
-        <!-- Mensagem de apoio -->
-        <section class="support-message">
-            <div class="support-content">
-                <p>Mas olha, já estamos começando o planejamento para o The Best Speaker 2026. E vamos ajudar todos os candidatos a se prepararem com antecedência. Se você quiser fazer parte desse movimento, assinale abaixo. Quem sabe, com um pouco mais de preparo e treinamento, sua palestra chegue mais longe ano que vem.</p>
-            </div>
-        </section>
-
-        <!-- Formulário -->
-        <section class="form-section">
-            <div class="form-content">
-                <h3>Você quer contar com nosso auxílio e participar do TBS 2026?</h3>
-                <form class="tbs-form">
-                    <label class="radio-option">
-                        <input type="radio" name="tbs2026" value="sim">
-                        <span class="radio-custom"></span>
-                        Sim
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="tbs2026" value="nao">
-                        <span class="radio-custom"></span>
-                        Não
-                    </label>
-                </form>
-            </div>
-        </section>
     </div>
 
     <!-- CENÁRIO 2: PASSOU 270 -->
@@ -114,6 +80,9 @@
             <div class="hero-column">
                 <div class="hero passed-270-hero">
                     <div class="hero-content">
+                        <div class="hero-flag">
+                            <img src="materiais/flag.png" alt="Bandeira TBS" class="flag-image">
+                        </div>
                         <h1 class="hero-title">PODE COMEMORAR: VOCÊ FOI CLASSIFICADO</h1>
                         <div class="hero-text">
                             <p>A sua palestra foi selecionada entre mais de XXXX inscrições. Isso coloca você entre os X% que avançam para a etapa de Eliminatórias.</p>
@@ -125,6 +94,14 @@
             <!-- Coluna da direita - Timeline -->
             <div class="timeline-column">
                 <div class="timeline">
+                    <!-- Timeline Introduction -->
+                    <div class="timeline-intro">
+                        <h2 class="timeline-intro__title">Sua linha do tempo no TBS</h2>
+                        <p class="timeline-intro__description">
+                            Acompanhe sua jornada no TBS 2025.
+                        </p>
+                    </div>
+                    
                     <div class="timeline-container">
                         <div class="timeline-item completed">
                             <div class="timeline-icon">✔</div>
@@ -137,44 +114,100 @@
                         <div class="timeline-item current">
                             <div class="timeline-icon">🟠</div>
                             <div class="timeline-content">
-                                <h3>Etapa 2: Classificatória P1 (Top 270)</h3>
-                                <p>Classificado para próxima fase</p>
+                                <h3>Etapa 2: Classificatória (Top 270)</h3>
+                                <p>Desafio revelado, entregue até dia 13/10</p>
+                                <p>O resultado sai dia xx.xx</p>
+                                <button onclick="openChallengesPopup()" class="timeline-challenge-btn">Ver desafio</button>
                             </div>
                         </div>
                         
                         <div class="timeline-item locked">
                             <div class="timeline-icon">🔒</div>
                             <div class="timeline-content">
-                                <h3>Etapa 3: Classificatória P2 (Top 100)</h3>
+                                <h3>Etapa 3: Eliminatória</h3>
                                 <p>Próxima etapa</p>
                             </div>
                         </div>
                         
-                        <div class="timeline-item locked">
+                        <div class="timeline-item locked timeline-item--milestone">
                             <div class="timeline-icon">🔒</div>
                             <div class="timeline-content">
                                 <h3>Etapa 4: Reality TBS 2025 (Top 20)</h3>
-                                <p>Meta final</p>
+                                <p>Reta Final</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+    </div>
 
-        <!-- Destaque rosa -->
-        <section class="highlight-box">
-            <div class="highlight-content">
-                <h3>Fase Eliminatória</h3>
-                <p>De 06.10 a 24.10</p>
-                <p><strong>Primeira entrega: 13.10</strong></p>
+    <!-- CENÁRIO 2.5: AGUARDE ENTRE 270 E 100 -->
+    <div id="waiting-270-100" class="scenario active">
+        <!-- Hero Section e Timeline em duas colunas -->
+        <section class="hero-timeline-container">
+            <!-- Coluna da esquerda - Hero -->
+            <div class="hero-column">
+                <div class="hero passed-270-hero">
+                    <div class="hero-content">
+                        <div class="hero-flag">
+                            <img src="materiais/flag.png" alt="Bandeira TBS" class="flag-image">
+                        </div>
+                        <h1 class="hero-title">PODE COMEMORAR:<br>VOCÊ FOI CLASSIFICADO</h1>
+                        <div class="hero-text">
+                            <p>A sua palestra foi selecionada entre mais de XXXX inscrições. Isso coloca você entre os X% que avançam para a etapa de Eliminatórias.</p>
+                        </div>
+                        <div class="hero-dates">
+                            <p>Aguarde até o dia 06 de outubro para receber os próximos desafios da Fase Eliminatória.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
-
-        <!-- Mensagem de orientação -->
-        <section class="orientation-message">
-            <div class="orientation-content">
-                <p>Nessa fase, você vai receber 2 desafios. O primeiro tem que ser entregue no dia 13.10. Cheque o seu email e assista ao vídeo com as orientações.</p>
+            
+            <!-- Coluna da direita - Timeline -->
+            <div class="timeline-column">
+                <div class="timeline">
+                    <!-- Timeline Introduction -->
+                    <div class="timeline-intro">
+                        <h2 class="timeline-intro__title">Sua linha do tempo no TBS</h2>
+                        <p class="timeline-intro__description">
+                            Acompanhe sua jornada no TBS 2025.
+                        </p>
+                    </div>
+                        <div class="timeline-item completed">
+                            <div class="timeline-icon">✔</div>
+                            <div class="timeline-content">
+                                <h3>Etapa 1: Seleção Inicial</h3>
+                                <p>Aprovado(a) para seguir</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item waiting">
+                            <div class="timeline-icon">⏳</div>
+                            <div class="timeline-content">
+                                <h3>Etapa 2: Classificatória (Top 270)</h3>
+                                <p>Aguarde até 06.10 para próximos desafios</p>
+                                <p>Fase Eliminatória: 06.10 a 24.10</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item locked">
+                            <div class="timeline-icon">🔒</div>
+                            <div class="timeline-content">
+                                <h3>Etapa 3: Eliminatória</h3>
+                                <p>Próxima etapa</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item locked timeline-item--milestone">
+                            <div class="timeline-icon">🔒</div>
+                            <div class="timeline-content">
+                                <h3>Etapa 4: Reality TBS 2025 (Top 20)</h3>
+                                <p>Reta Final</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
@@ -187,6 +220,9 @@
             <div class="hero-column">
                 <div class="hero passed-100-hero">
                     <div class="hero-content">
+                        <div class="hero-flag">
+                            <img src="materiais/flag.png" alt="Bandeira TBS" class="flag-image">
+                        </div>
                         <h1 class="hero-title">PODE GRITAR BEM ALTO: EU PASSEI!!!!!!</h1>
                         <div class="hero-text">
                             <p>Sim, você passou. Difícil de acreditar, né? Você nunca esteve tão perto. Mas a disputa nunca esteve tão difícil. Você está entre 100 competidores. Mas apenas 20 passam. Então, pode comemorar. Mas com moderação.</p>
@@ -198,6 +234,14 @@
             <!-- Coluna da direita - Timeline -->
             <div class="timeline-column">
                 <div class="timeline">
+                    <!-- Timeline Introduction -->
+                    <div class="timeline-intro">
+                        <h2 class="timeline-intro__title">Sua linha do tempo no TBS</h2>
+                        <p class="timeline-intro__description">
+                            Acompanhe sua jornada no TBS 2025.
+                        </p>
+                    </div>
+                    
                     <div class="timeline-container">
                         <div class="timeline-item completed">
                             <div class="timeline-icon">✔</div>
@@ -210,50 +254,36 @@
                         <div class="timeline-item completed">
                             <div class="timeline-icon">✔</div>
                             <div class="timeline-content">
-                                <h3>Etapa 2: Classificatória P1 (Top 270)</h3>
-                                <p>Vídeo enviado e aprovado</p>
+                                <h3>Etapa 2: Classificatória (Top 270)</h3>
+                                <p>Aprovado(a) para seguir</p>
                             </div>
                         </div>
                         
                         <div class="timeline-item current">
                             <div class="timeline-icon">🟠</div>
                             <div class="timeline-content">
-                                <h3>Etapa 3: Classificatória P2 (Top 100)</h3>
-                                <p>Classificado para próxima fase</p>
+                                <h3>Etapa 3: Eliminatória</h3>
+                                <p>Desafio revelado, entregue até 20/10</p>
+                                <p>Resultado sai dia 24/10</p>
+                                <button onclick="openChallengesPopup()" class="timeline-challenge-btn">Ver desafio</button>
                             </div>
                         </div>
                         
-                        <div class="timeline-item locked">
+                        <div class="timeline-item locked timeline-item--milestone">
                             <div class="timeline-icon">🔒</div>
                             <div class="timeline-content">
                                 <h3>Etapa 4: Reality TBS 2025 (Top 20)</h3>
-                                <p>Meta final</p>
+                                <p>Reta Final</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Destaque rosa -->
-        <section class="highlight-box">
-            <div class="highlight-content">
-                <h3>Fase Eliminatória</h3>
-                <p>De 06.10 a 24.10</p>
-                <p><strong>Próxima entrega: 20.10</strong></p>
-            </div>
-        </section>
-
-        <!-- Mensagem de orientação -->
-        <section class="orientation-message">
-            <div class="orientation-content">
-                <p>Cheque o seu email e assista ao vídeo com as orientações.</p>
-            </div>
-        </section>
     </div>
 
     <!-- CENÁRIO 4: PASSOU 20 (REALITY) -->
-    <div id="passed-20" class="scenario active">
+    <div id="passed-20" class="scenario">
         <!-- Hero Section e Timeline em duas colunas -->
         <section class="hero-timeline-container">
             <!-- Coluna da esquerda - Hero -->
@@ -270,6 +300,9 @@
                         <div class="hero-text">
                             <p>Pode buzinar na rua. Pode acordar toda a vizinhança. Pode gritar no meio do escritório. Você foi um dos 20 selecionados para a gravação do The Best Speaker Brasil. Será uma oportunidade única, uma experiência inesquecível, que vai impulsionar a sua carreira. Não importa o resultado. Parabéns. O Brasil precisa ouvir a sua voz. E agora vai.</p>
                         </div>
+                        <div class="hero-dates">
+                            <p>A fase reality e a final acontecem entre os dias 22 e 30 de novembro. Pode bloquear a agenda. Prepare as malas. E aguarde nosso contato.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -277,6 +310,14 @@
             <!-- Coluna da direita - Timeline -->
             <div class="timeline-column">
                 <div class="timeline">
+                    <!-- Timeline Introduction -->
+                    <div class="timeline-intro">
+                        <h2 class="timeline-intro__title">Sua linha do tempo no TBS</h2>
+                        <p class="timeline-intro__description">
+                            Acompanhe sua jornada no TBS 2025.
+                        </p>
+                    </div>
+                    
                     <div class="timeline-container">
                         <div class="timeline-item completed">
                             <div class="timeline-icon">✔</div>
@@ -289,23 +330,26 @@
                         <div class="timeline-item completed">
                             <div class="timeline-icon">✔</div>
                             <div class="timeline-content">
-                                <h3>Etapa 2: Classificatória P1 (Top 270)</h3>
-                                <p>Vídeo enviado e aprovado</p>
+                                <h3>Etapa 2: Classificatória (Top 270)</h3>
+                                <p>Fase Eliminatória: 06.10 a 24.10</p>
+                                <p>Primeira entrega: 13.10</p>
                             </div>
                         </div>
                         
                         <div class="timeline-item completed">
                             <div class="timeline-icon">✔</div>
                             <div class="timeline-content">
-                                <h3>Etapa 3: Classificatória P2 (Top 100)</h3>
-                                <p>Avançou para a final</p>
+                                <h3>Etapa 3: Eliminatória</h3>
+                                <p>Fase Eliminatória: 06.10 a 24.10</p>
+                                <p>Próxima entrega: 20.10</p>
                             </div>
                         </div>
                         
-                        <div class="timeline-item current">
+                        <div class="timeline-item current timeline-item--milestone">
                             <div class="timeline-icon tbs-microphone">🎤</div>
                             <div class="timeline-content">
                                 <h3>Etapa 4: Reality TBS 2025 (Top 20)</h3>
+                                <p>Aguarde nossa equipe entrar em contato</p>
                                 <p>Finalista confirmado</p>
                             </div>
                         </div>
@@ -314,64 +358,45 @@
             </div>
         </section>
 
-        <!-- Mensagem final -->
-        <section class="final-message">
-            <div class="final-content">
-                <p>A fase reality e a final acontecem entre os dias 22 e 30 de novembro. Pode bloquear a agenda. Prepare as malas. E aguarde nosso contato.</p>
-            </div>
-        </section>
     </div>
 
     <!-- CENÁRIO 5: REPROVADO P1 -->
     <div id="rejected-p1" class="scenario">
-        <!-- Hero Section e Timeline em duas colunas -->
-        <section class="hero-timeline-container">
-            <!-- Coluna da esquerda - Hero -->
-            <div class="hero-column">
-                <div class="hero rejected-hero">
-                    <div class="hero-content">
-                        <h1 class="hero-title">INFELIZMENTE, NÃO FOI DESSA VEZ.</h1>
-                        <div class="hero-text">
-                            <p>A edição 2025 do The Best Speaker teve mais de XXXX inscrições. E você passou entre os 270. Agora, a disputa foi acirrada e foi muito difícil chegar aos 100 palestrantes que avançaram para a próxima fase. Dessa vez, sua palestra não foi classificada. Sentimos muito.</p>
-                        </div>
+        <!-- Layout Fluido: Textos à esquerda, Conversão à direita -->
+        <section class="rejected-layout-container">
+            <!-- Coluna da Esquerda - Conteúdo Principal -->
+            <div class="rejected-content-column">
+                <div class="rejected-hero">
+                    <h1 class="rejected-title">INFELIZMENTE, NÃO FOI DESSA VEZ.</h1>
+                    <div class="rejected-text">
+                        <p>A edição 2025 do The Best Speaker teve mais de XXXX inscrições. E você passou entre os 270. Agora, a disputa foi acirrada e foi muito difícil chegar aos 100 palestrantes que avançaram para a próxima fase. Dessa vez, sua palestra não foi classificada. Sentimos muito.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Coluna da direita - Timeline -->
-            <div class="timeline-column">
-                <div class="timeline">
-                    <div class="timeline-container">
-                        <div class="timeline-item completed">
-                            <div class="timeline-icon">✔</div>
-                            <div class="timeline-content">
-                                <h3>Etapa 1: Seleção Inicial</h3>
-                                <p>Aprovado(a) para seguir</p>
-                            </div>
+            <!-- Coluna da Direita - Box de Conversão -->
+            <div class="rejected-conversion-column">
+                <div class="conversion-box">
+                    <div class="conversion-content">
+                        <div class="conversion-text">
+                            <p>Mas olha, já estamos começando o planejamento para o <strong>The Best Speaker 2026</strong>.</p>
+                            <p>E vamos ajudar todos os candidatos a se prepararem com antecedência.</p>
+                            <p>Se você quiser fazer parte desse movimento, assinale abaixo.</p>
+                            <p>Quem sabe, com um pouco mais de preparo e treinamento, sua palestra chegue mais longe ano que vem.</p>
                         </div>
-                        
-                        <div class="timeline-item stopped">
-                            <div class="timeline-icon">❌</div>
-                            <div class="timeline-content">
-                                <h3>Etapa 2: Classificatória P1 (Top 270)</h3>
-                                <p>Sua jornada foi concluída aqui</p>
-                                <p class="timeline-note">Você esteve entre os 270 melhores, mas não avançou para a próxima fase.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item locked">
-                            <div class="timeline-icon">🔒</div>
-                            <div class="timeline-content">
-                                <h3>Etapa 3: Classificatória P2 (Top 100)</h3>
-                                <p>Não alcançado</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item locked">
-                            <div class="timeline-icon">🔒</div>
-                            <div class="timeline-content">
-                                <h3>Etapa 4: Reality TBS 2025 (Top 20)</h3>
-                                <p>Não alcançado</p>
+                        <div class="conversion-form">
+                            <h4>Você quer contar com nosso auxílio e participar do TBS 2026?</h4>
+                            <div class="conversion-radio-group">
+                                <label class="conversion-radio-option">
+                                    <input type="radio" name="tbs2026" value="sim">
+                                    <span class="conversion-radio-custom"></span>
+                                    <span class="conversion-radio-text">Sim</span>
+                                </label>
+                                <label class="conversion-radio-option">
+                                    <input type="radio" name="tbs2026" value="nao">
+                                    <span class="conversion-radio-custom"></span>
+                                    <span class="conversion-radio-text">Não</span>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -379,83 +404,45 @@
             </div>
         </section>
 
-        <!-- Mensagem de apoio -->
-        <section class="support-message">
-            <div class="support-content">
-                <p>Mas olha, já estamos começando o planejamento para o The Best Speaker 2026. E vamos ajudar todos os candidatos a se prepararem com antecedência. Se você quiser fazer parte desse movimento, assinale abaixo. Quem sabe, com um pouco mais de preparo e treinamento, sua palestra chegue mais longe ano que vem.</p>
-            </div>
-        </section>
-
-        <!-- Formulário -->
-        <section class="form-section">
-            <div class="form-content">
-                <h3>Você quer contar com nosso auxílio e participar do TBS 2026?</h3>
-                <form class="tbs-form">
-                    <label class="radio-option">
-                        <input type="radio" name="tbs2026" value="sim">
-                        <span class="radio-custom"></span>
-                        Sim
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="tbs2026" value="nao">
-                        <span class="radio-custom"></span>
-                        Não
-                    </label>
-                </form>
-            </div>
-        </section>
     </div>
 
     <!-- CENÁRIO 6: REPROVADO P2 -->
     <div id="rejected-p2" class="scenario">
-        <!-- Hero Section e Timeline em duas colunas -->
-        <section class="hero-timeline-container">
-            <!-- Coluna da esquerda - Hero -->
-            <div class="hero-column">
-                <div class="hero rejected-hero">
-                    <div class="hero-content">
-                        <h1 class="hero-title">INFELIZMENTE, NÃO FOI DESSA VEZ.</h1>
-                        <div class="hero-text">
-                            <p>A edição 2025 do The Best Speaker teve mais de XXXX inscrições, mas você passou entre os 270. Depois, se qualificou entre os 100. Agora, a disputa foi acirrada e foi muito difícil chegar aos 20 palestrantes que avançaram para a próxima fase. Dessa vez, sua palestra não foi classificada. Sentimos muito.</p>
-                        </div>
+        <!-- Layout Fluido: Textos à esquerda, Conversão à direita -->
+        <section class="rejected-layout-container">
+            <!-- Coluna da Esquerda - Conteúdo Principal -->
+            <div class="rejected-content-column">
+                <div class="rejected-hero">
+                    <h1 class="rejected-title">INFELIZMENTE, NÃO FOI DESSA VEZ.</h1>
+                    <div class="rejected-text">
+                        <p>A edição 2025 do The Best Speaker teve mais de XXXX inscrições, mas você passou entre os 270. Depois, se qualificou entre os 100. Agora, a disputa foi acirrada e foi muito difícil chegar aos 20 palestrantes que avançaram para a próxima fase. Dessa vez, sua palestra não foi classificada. Sentimos muito.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Coluna da direita - Timeline -->
-            <div class="timeline-column">
-                <div class="timeline">
-                    <div class="timeline-container">
-                        <div class="timeline-item completed">
-                            <div class="timeline-icon">✔</div>
-                            <div class="timeline-content">
-                                <h3>Etapa 1: Seleção Inicial</h3>
-                                <p>Aprovado(a) para seguir</p>
-                            </div>
+            <!-- Coluna da Direita - Box de Conversão -->
+            <div class="rejected-conversion-column">
+                <div class="conversion-box">
+                    <div class="conversion-content">
+                        <div class="conversion-text">
+                            <p>Mas olha, já estamos começando o planejamento para o <strong>The Best Speaker 2026</strong>.</p>
+                            <p>E vamos ajudar todos os candidatos a se prepararem com antecedência.</p>
+                            <p>Se você quiser fazer parte desse movimento, assinale abaixo.</p>
+                            <p>Quem sabe, com um pouco mais de preparo e treinamento, sua palestra chegue mais longe ano que vem.</p>
                         </div>
-                        
-                        <div class="timeline-item completed">
-                            <div class="timeline-icon">✔</div>
-                            <div class="timeline-content">
-                                <h3>Etapa 2: Classificatória P1 (Top 270)</h3>
-                                <p>Vídeo enviado e aprovado</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item stopped">
-                            <div class="timeline-icon">❌</div>
-                            <div class="timeline-content">
-                                <h3>Etapa 3: Classificatória P2 (Top 100)</h3>
-                                <p>Sua jornada foi concluída aqui</p>
-                                <p class="timeline-note">Você esteve entre os 100 melhores, mas não avançou para a próxima fase.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item locked">
-                            <div class="timeline-icon">🔒</div>
-                            <div class="timeline-content">
-                                <h3>Etapa 4: Reality TBS 2025 (Top 20)</h3>
-                                <p>Não alcançado</p>
+                        <div class="conversion-form">
+                            <h4>Você quer contar com nosso auxílio e participar do TBS 2026?</h4>
+                            <div class="conversion-radio-group">
+                                <label class="conversion-radio-option">
+                                    <input type="radio" name="tbs2026" value="sim">
+                                    <span class="conversion-radio-custom"></span>
+                                    <span class="conversion-radio-text">Sim</span>
+                                </label>
+                                <label class="conversion-radio-option">
+                                    <input type="radio" name="tbs2026" value="nao">
+                                    <span class="conversion-radio-custom"></span>
+                                    <span class="conversion-radio-text">Não</span>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -463,33 +450,36 @@
             </div>
         </section>
 
-        <!-- Mensagem de apoio -->
-        <section class="support-message">
-            <div class="support-content">
-                <p>Mas olha, já estamos começando o planejamento para o The Best Speaker 2026. E vamos ajudar todos os candidatos a se prepararem com antecedência. Se você quiser fazer parte desse movimento, assinale abaixo. Quem sabe, com um pouco mais de preparo e treinamento, sua palestra chegue mais longe ano que vem.</p>
-            </div>
-        </section>
-
-        <!-- Formulário -->
-        <section class="form-section">
-            <div class="form-content">
-                <h3>Você quer contar com nosso auxílio e participar do TBS 2026?</h3>
-                <form class="tbs-form">
-                    <label class="radio-option">
-                        <input type="radio" name="tbs2026" value="sim">
-                        <span class="radio-custom"></span>
-                        Sim
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="tbs2026" value="nao">
-                        <span class="radio-custom"></span>
-                        Não
-                    </label>
-                </form>
-            </div>
-        </section>
     </div>
 
+    <!-- Popup de Desafios -->
+    <div id="challengesPopup" class="popup-overlay">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h2>Desafios da Fase Eliminatória</h2>
+                <button onclick="closeChallengesPopup()" class="popup-close">&times;</button>
+            </div>
+            <div class="popup-body">
+                <div class="challenge-info">
+                    <h3>📹 Vídeo de Orientação - Etapa 2</h3>
+                    <div class="video-container">
+                        <video class="video-player" controls poster="materiais/drisigner-ZKeFthqOCCM-unsplash 1.png">
+                            <source src="materiais/BANCO DE VÍDEOS/128089_blue_smoke_on_a_condenser_microphone_making_shapes_By_Max_Freyss_Artlist_HD.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos HTML5.
+                        </video>
+                    </div>
+                    <p class="challenge-description">
+                        Nessa fase, você vai receber 2 desafios. O primeiro tem que ser entregue no dia 13.10. 
+                        Cheque o seu email e assista ao vídeo com as orientações.
+                    </p>
+                    <div class="challenge-actions">
+                        <button class="cta-primary">Enviar Vídeo</button>
+                        <button onclick="closeChallengesPopup()" class="cta-secondary">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

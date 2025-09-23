@@ -18,6 +18,13 @@ function showScenario(scenarioId) {
         selectedScenario.classList.add('active');
     }
     
+    // Inicia confetes se for o cenário Reality
+    if (scenarioId === 'passed-20') {
+        startConfetti();
+    } else {
+        stopConfetti();
+    }
+    
     // Adiciona a classe active ao botão correspondente
     const selectedButton = document.querySelector(`[onclick="showScenario('${scenarioId}')"]`);
     if (selectedButton) {
@@ -193,4 +200,84 @@ function createConfettiEffect(element) {
             animate();
         }, i * 50);
     }
+}
+
+// Funções para o popup de desafios
+function openChallengesPopup() {
+    const popup = document.getElementById('challengesPopup');
+    if (popup) {
+        popup.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Previne scroll da página
+    }
+}
+
+function closeChallengesPopup() {
+    const popup = document.getElementById('challengesPopup');
+    if (popup) {
+        popup.classList.remove('active');
+        document.body.style.overflow = 'auto'; // Restaura scroll da página
+    }
+}
+
+// Fecha popup ao clicar fora dele
+document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.getElementById('challengesPopup');
+    if (popup) {
+        popup.addEventListener('click', function(e) {
+            if (e.target === popup) {
+                closeChallengesPopup();
+            }
+        });
+    }
+    
+    // Fecha popup com tecla ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeChallengesPopup();
+        }
+    });
+});
+
+// Variáveis para controle dos confetes
+let confettiInterval = null;
+
+// Função para criar confetes (usando o mesmo efeito dos cards)
+function createConfetti() {
+    const heroContainer = document.querySelector('.passed-20-hero');
+    if (!heroContainer) return;
+    
+    // Atraso de 5 segundos para não conflitar com outros confetes
+    setTimeout(() => {
+        createConfettiEffect(heroContainer);
+    }, 5000);
+}
+
+// Função para iniciar confetes
+function startConfetti() {
+    // Limpa intervalo anterior se existir
+    if (confettiInterval) {
+        clearInterval(confettiInterval);
+    }
+    
+    // Cria confetes imediatamente
+    createConfetti();
+    
+    // Cria confetes a cada 5 segundos
+    confettiInterval = setInterval(createConfetti, 5000);
+}
+
+// Função para parar confetes
+function stopConfetti() {
+    if (confettiInterval) {
+        clearInterval(confettiInterval);
+        confettiInterval = null;
+    }
+    
+    // Remove todos os confetes existentes
+    const existingConfetti = document.querySelectorAll('.confetti');
+    existingConfetti.forEach(confetti => {
+        if (confetti.parentElement) {
+            confetti.parentElement.removeChild(confetti);
+        }
+    });
 }
