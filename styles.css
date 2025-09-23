@@ -1209,7 +1209,7 @@ body {
 
 .timeline-item {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     margin-bottom: 16px;
     position: relative;
     padding: 16px 20px 16px 50px;
@@ -1571,49 +1571,71 @@ body {
     font-weight: 600;
 }
 
-/* Opacidade bem opaca para cards subsequentes à etapa atual */
+/* Opacidade sutil para cards subsequentes à etapa atual */
 .timeline-item.subsequent {
-    opacity: 0.15;
-    background: rgba(248, 250, 252, 0.2);
-    border-color: rgba(139, 115, 85, 0.05);
+    opacity: 1;
+    background: rgb(220 220 220 / 95%);
+    border-color: rgba(139, 115, 85, 0.2);
     box-shadow: 
-        0 1px 2px rgba(0, 0, 0, 0.02),
-        0 1px 1px rgba(212, 175, 55, 0.02);
+        0 2px 8px rgba(0, 0, 0, 0.05),
+        0 1px 4px rgba(212, 175, 55, 0.1);
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .timeline-item.subsequent:hover {
-    opacity: 0.25;
+    opacity: 1;
     transform: translateY(-1px);
     box-shadow: 
-        0 2px 4px rgba(0, 0, 0, 0.03),
-        0 1px 2px rgba(212, 175, 55, 0.03);
+        0 4px 12px rgba(0, 0, 0, 0.08),
+        0 2px 6px rgba(212, 175, 55, 0.15);
 }
 
 .timeline-item.subsequent .timeline-icon {
-    background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
-    color: #f9fafb;
-    box-shadow: 0 1px 2px rgba(107, 114, 128, 0.05);
-    border-color: rgba(107, 114, 128, 0.1);
-    opacity: 0.4;
+    background: linear-gradient(135deg, #d1d5db 0%, #9ca3af 100%);
+    color: #6b7280;
+    box-shadow: 0 2px 4px rgba(107, 114, 128, 0.1);
+    border-color: rgba(107, 114, 128, 0.2);
+    opacity: 0.8;
 }
 
 .timeline-item.subsequent .timeline-content h3 {
-    color: #e5e7eb;
-    font-weight: 400;
-    opacity: 0.5;
+    color: #9ca3af !important;
+    font-weight: 600 !important;
+    opacity: 1 !important;
 }
 
 .timeline-item.subsequent .timeline-content p {
-    color: #e5e7eb;
-    font-weight: 300;
-    opacity: 0.3;
+    color: #9ca3af !important;
+    font-weight: 400;
+    opacity: 1 !important;
+}
+
+/* Garantir que milestone subsequente tenha o mesmo estilo */
+.timeline-item.subsequent.timeline-item--milestone {
+    background: rgb(220 220 220 / 95%) !important;
+    border-color: rgba(139, 115, 85, 0.2) !important;
+}
+
+.timeline-item.subsequent.timeline-item--milestone::before {
+    display: none !important;
+}
+
+.timeline-item.subsequent.timeline-item--milestone .timeline-content h3 {
+    color: #9ca3af !important;
+    font-weight: 600 !important;
+    opacity: 1 !important;
+}
+
+.timeline-item.subsequent.timeline-item--milestone .timeline-content p {
+    color: #9ca3af !important;
+    font-weight: 400;
+    opacity: 1 !important;
 }
 
 .timeline-item.current .timeline-content h3,
 .timeline-item.waiting .timeline-content h3 {
-    color: #F00091;
-    font-weight: 800;
+    color: #F00091 !important;
+    font-weight: 800 !important;
 }
 
 .timeline-item.current .timeline-content p {
