@@ -41,8 +41,8 @@ const scenarioMapping = {
     'passed-270': 'Passou para Top 270',
     'passed-100': 'Passou para Top 100', 
     'passed-20': 'Selecionado para Reality (Top 20)',
-    'rejected-p1': 'Reprovado na P1',
-    'rejected-p2': 'Reprovado na P2'
+    'rejected-p1': 'Reprovado na Etapa 2',
+    'rejected-p2': 'Reprovado na Etapa 3'
 };
 
 // Adiciona efeitos de hover nos botões CTA
@@ -281,3 +281,205 @@ function stopConfetti() {
         }
     });
 }
+
+// ========================================
+// INTEGRAÇÃO COM BACKEND - FUNÇÕES PRINCIPAIS
+// ========================================
+
+/**
+ * Inicializa a aplicação com dados do backend
+ */
+async function initializeApp() {
+    try {
+        showLoading();
+        
+        // Verifica se as APIs estão disponíveis
+        if (!window.tbsApi || !window.tbsData) {
+            throw new Error('APIs não disponíveis');
+        }
+        
+        // Carrega dados do usuário
+        await window.tbsData.loadUserData();
+        
+        // Obtém cenário baseado no status do usuário
+        const userScenario = window.tbsData.getCurrentScenario();
+        
+        // Mostra o cenário correto
+        showScenario(userScenario);
+        
+        // Esconde seletor de cenários (modo produção)
+        hideScenarioSelector();
+        
+    } catch (error) {
+        console.error('Erro ao inicializar app:', error);
+        
+        // Em caso de erro, volta para modo desenvolvimento
+        console.log('Voltando para modo desenvolvimento devido ao erro');
+        showScenario('waiting-270-100');
+        
+        // Só mostra erro se não for erro de API não disponível
+        if (!error.message.includes('APIs não disponíveis')) {
+            showError('Não foi possível carregar seus dados. Usando modo de demonstração.');
+        }
+    } finally {
+        hideLoading();
+    }
+}
+
+/**
+ * Esconde o seletor de cenários (modo produção)
+ */
+function hideScenarioSelector() {
+    const headerNav = document.querySelector('.header__nav');
+    if (headerNav) {
+        headerNav.style.display = 'none';
+    }
+}
+
+/**
+ * Mostra loading
+ */
+function showLoading() {
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    if (loadingOverlay) {
+        loadingOverlay.style.display = 'flex';
+    }
+}
+
+/**
+ * Esconde loading
+ */
+function hideLoading() {
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    if (loadingOverlay) {
+        loadingOverlay.style.display = 'none';
+    }
+}
+
+/**
+ * Mostra erro
+ */
+function showError(message) {
+    const errorModal = document.getElementById('errorModal');
+    const errorMessage = document.getElementById('errorMessage');
+    
+    if (errorModal && errorMessage) {
+        errorMessage.textContent = message;
+        errorModal.style.display = 'flex';
+        
+        // Fecha automaticamente após 5 segundos
+        autoCloseError();
+    }
+}
+
+/**
+ * Esconde erro
+ */
+function hideError() {
+    const errorModal = document.getElementById('errorModal');
+    if (errorModal) {
+        errorModal.style.display = 'none';
+        // Volta para modo desenvolvimento
+        showScenario('waiting-270-100');
+    }
+}
+
+/**
+ * Fecha modal de erro automaticamente após 5 segundos
+ */
+function autoCloseError() {
+    setTimeout(() => {
+        hideError();
+    }, 5000);
+}
+
+/**
+ * Processa formulário de opt-in TBS 2026
+ */
+async function handleTBS2026OptIn(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const formData = new FormData(form);
+    const optInValue = formData.get('tbs2026');
+    
+    if (!optInValue) {
+        alert('Por favor, selecione uma opção.');
+        return;
+    }
+    
+    try {
+        showLoading();
+        await window.tbsData.submitTBS2026OptIn(optInValue);
+        
+        // Mostra feedback de sucesso
+        alert(`Obrigado! Sua resposta "${optInValue === 'sim' ? 'Sim' : 'Não'}" foi registrada.`);
+        
+    } catch (error) {
+        console.error('Erro ao enviar opt-in:', error);
+        showError('Não foi possível registrar sua resposta. Tente novamente.');
+    } finally {
+        hideLoading();
+    }
+}
+
+/**
+ * Processa submissão de desafio
+ */
+async function handleChallengeSubmission(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const formData = new FormData(form);
+    const challengeData = {
+        video_file: formData.get('video_file'),
+        description: formData.get('description')
+    };
+    
+    try {
+        showLoading();
+        await window.tbsData.submitChallenge(challengeData);
+        
+        // Mostra feedback de sucesso
+        alert('Desafio enviado com sucesso!');
+        
+        // Fecha popup
+        closeChallengesPopup();
+        
+    } catch (error) {
+        console.error('Erro ao enviar desafio:', error);
+        showError('Não foi possível enviar o desafio. Tente novamente.');
+    } finally {
+        hideLoading();
+    }
+}
+
+// ========================================
+// INICIALIZAÇÃO DA APLICAÇÃO
+// ========================================
+
+// Inicializa a aplicação quando a página carrega
+document.addEventListener('DOMContentLoaded', function() {
+    // Verifica se está em modo de desenvolvimento ou produção
+    const isDevelopment = window.location.hostname === 'localhost' || 
+                         window.location.hostname === '127.0.0.1' || 
+                         window.location.hostname === 'file' ||
+                         window.location.protocol === 'file:';
+    
+    if (isDevelopment) {
+        // Modo desenvolvimento - mantém seletor de cenários
+        console.log('Modo desenvolvimento ativo - Seletor de cenários disponível');
+        
+        // Garante que o cenário padrão está ativo
+        showScenario('waiting-270-100');
+    } else {
+        // Modo produção - carrega dados do backend
+        // Só executa se as APIs estiverem disponíveis
+        if (window.tbsApi && window.tbsData) {
+            initializeApp();
+        } else {
+            console.warn('APIs não disponíveis - usando modo desenvolvimento');
+            showScenario('waiting-270-100');
+        }
+    }
+});

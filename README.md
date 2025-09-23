@@ -27,8 +27,8 @@ Uma simulação interativa dos diferentes cenários de resultado do The Best Spe
 2. **🟠 Passou 270**: Classificado para a P1 (Top 270)
 3. **🟠 Passou 100**: Classificado para a P2 (Top 100)
 4. **🟢 Reality (Top 20)**: Selecionado para o reality show
-5. **🔴 Reprovado P1**: Não passou na P1
-6. **🔴 Reprovado P2**: Não passou na P2
+5. **🔴 Reprovado Et.2**: Não passou na Etapa 2
+6. **🔴 Reprovado Et.3**: Não passou na Etapa 3
 
 ## 🛠️ Tecnologias
 

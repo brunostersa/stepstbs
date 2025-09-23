@@ -1413,9 +1413,10 @@ body {
 /* Círculo branco removido da etapa locked - manter consistência */
 
 .timeline-item.locked {
-    background: rgba(248, 250, 252, 0.95); /* Light gray background */
-    opacity: 0.5 !important;
+    background: rgba(248, 250, 252, 0.98); /* Light gray background mais opaco */
     border-color: rgba(139, 115, 85, 0.3);
+    position: relative;
+    z-index: 10;
 }
 
 /* Step 4 - Design especial para marco importante */
@@ -1435,7 +1436,9 @@ body {
 }
 
 .timeline-item.locked.timeline-item--milestone {
-    opacity: 0.5 !important;
+    background: rgba(248, 250, 252, 0.98) !important;
+    position: relative;
+    z-index: 10;
 }
 
 .timeline-item--milestone::before {
@@ -1566,6 +1569,45 @@ body {
 .timeline-item.completed .timeline-content p {
     color: #4a5568; /* Dark gray for descriptions */
     font-weight: 600;
+}
+
+/* Opacidade bem opaca para cards subsequentes à etapa atual */
+.timeline-item.subsequent {
+    opacity: 0.15;
+    background: rgba(248, 250, 252, 0.2);
+    border-color: rgba(139, 115, 85, 0.05);
+    box-shadow: 
+        0 1px 2px rgba(0, 0, 0, 0.02),
+        0 1px 1px rgba(212, 175, 55, 0.02);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.timeline-item.subsequent:hover {
+    opacity: 0.25;
+    transform: translateY(-1px);
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.03),
+        0 1px 2px rgba(212, 175, 55, 0.03);
+}
+
+.timeline-item.subsequent .timeline-icon {
+    background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+    color: #f9fafb;
+    box-shadow: 0 1px 2px rgba(107, 114, 128, 0.05);
+    border-color: rgba(107, 114, 128, 0.1);
+    opacity: 0.4;
+}
+
+.timeline-item.subsequent .timeline-content h3 {
+    color: #e5e7eb;
+    font-weight: 400;
+    opacity: 0.5;
+}
+
+.timeline-item.subsequent .timeline-content p {
+    color: #e5e7eb;
+    font-weight: 300;
+    opacity: 0.3;
 }
 
 .timeline-item.current .timeline-content h3,
@@ -1832,18 +1874,20 @@ body {
     font-weight: 500;
 }
 
-.timeline-item.locked .timeline-content h3 {
-    color: var(--color-background); /* Dark text for light background */
-    font-weight: 800;
-    font-family: var(--font-family-display);
-    font-size: var(--font-size-lg);
-}
 
 .timeline-item.locked .timeline-content p {
     color: #4a5568; /* Dark gray for descriptions */
     font-weight: 600;
-    opacity: 0.6;
+    opacity: 0.7;
     font-size: var(--font-size-base);
+}
+
+.timeline-item.locked .timeline-content h3 {
+    color: #6b7280; /* Lighter color for locked state */
+    font-weight: 800;
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-lg);
+    opacity: 0.8;
 }
 
 .timeline-note {
@@ -1855,6 +1899,149 @@ body {
     border-radius: 8px;
     margin-top: 8px;
     font-weight: 500;
+}
+
+/* ========================================
+   LOADING E ERROR STATES
+   ======================================== */
+
+/* Loading Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    backdrop-filter: blur(5px);
+}
+
+.loading-content {
+    text-align: center;
+    color: white;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(212, 175, 55, 0.3);
+    border-top: 4px solid var(--color-accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text);
+    margin: 0;
+}
+
+/* Error Modal */
+.error-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10001;
+    backdrop-filter: blur(5px);
+}
+
+.error-content {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+    animation: errorSlideIn 0.3s ease-out;
+}
+
+@keyframes errorSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.error-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.error-title {
+    font-family: var(--font-family-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-error);
+    margin-bottom: 16px;
+}
+
+.error-message {
+    font-size: 1rem;
+    color: #6b7280;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.error-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.error-button {
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.error-button--primary {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.error-button--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 21, 56, 0.3);
+}
+
+.error-button--secondary {
+    background: #f3f4f6;
+    color: #6b7280;
+    border: 1px solid #d1d5db;
+}
+
+.error-button--secondary:hover {
+    background: #e5e7eb;
+    color: #374151;
+    transform: translateY(-1px);
 }
 
 /* Encerramento */
