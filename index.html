@@ -32,44 +32,65 @@
 
     <!-- CENÁRIO 1: REPROVADO SELETIVA INICIAL -->
     <div id="rejected-initial" class="scenario">
-        <!-- Layout Fluido: Textos à esquerda, Conversão à direita -->
+        <!-- Layout Fluido: Conteúdo Principal -->
         <section class="rejected-layout-container">
-            <!-- Coluna da Esquerda - Conteúdo Principal -->
             <div class="rejected-content-column">
                 <div class="rejected-hero">
+                    <div class="reverb-icon">
+                        <img src="materiais/reverb.png" alt="Reverb" class="reverb-image">
+                    </div>
                     <h1 class="rejected-title">INFELIZMENTE, NÃO FOI DESSA VEZ.</h1>
                     <div class="rejected-text">
                         <p>A edição 2025 do The Best Speaker teve mais de XXXX inscrições. A disputa foi acirrada e foi muito difícil chegar às 270 palestras que avançaram para a próxima fase. Dessa vez, sua palestra não foi classificada. Sentimos muito.</p>
+                        <p>Mas olha, já estamos começando o planejamento para o <strong>The Best Speaker 2026</strong>.</p>
+                        <p>E vamos ajudar todos os candidatos a se prepararem com antecedência.</p>
+                        <p>Se você quiser fazer parte desse movimento, assinale abaixo.</p>
+                        <p>Quem sabe, com um pouco mais de preparo e treinamento, sua palestra chegue mais longe ano que vem.</p>
                     </div>
                 </div>
-            </div>
-
-            <!-- Coluna da Direita - Box de Conversão -->
-            <div class="rejected-conversion-column">
-                <div class="conversion-box">
-                    <div class="conversion-content">
-                        <div class="conversion-text">
-                            <p>Mas olha, já estamos começando o planejamento para o <strong>The Best Speaker 2026</strong>.</p>
-                            <p>E vamos ajudar todos os candidatos a se prepararem com antecedência.</p>
-                            <p>Se você quiser fazer parte desse movimento, assinale abaixo.</p>
-                            <p>Quem sabe, com um pouco mais de preparo e treinamento, sua palestra chegue mais longe ano que vem.</p>
-                        </div>
-                        <form class="conversion-form" onsubmit="handleTBS2026OptIn(event)">
-                            <h4>Você quer contar com nosso auxílio e participar do TBS 2026?</h4>
-                            <div class="conversion-radio-group">
-                                <label class="conversion-radio-option">
-                                    <input type="radio" name="tbs2026" value="sim" required>
-                                    <span class="conversion-radio-custom"></span>
-                                    <span class="conversion-radio-text">Sim</span>
+                
+                <!-- Box de Conversão dentro da seção principal -->
+                <div class="conversion-card">
+                    <div class="conversion-header">
+                        <h3>🚀 Prepare-se para o TBS 2026!</h3>
+                        <p>Já estamos planejando a próxima edição e queremos te ajudar a se preparar melhor.</p>
+                    </div>
+                    
+                    <div class="conversion-body">
+                        <form class="conversion-form-simple" onsubmit="handleTBS2026OptIn(event)">
+                            <div class="form-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="tbs2026" value="sim" required checked>
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text">Sim, quero receber os materiais!</span>
                                 </label>
-                                <label class="conversion-radio-option">
+                                
+                                <label class="radio-option">
                                     <input type="radio" name="tbs2026" value="nao" required>
-                                    <span class="conversion-radio-custom"></span>
-                                    <span class="conversion-radio-text">Não</span>
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text">Não, obrigado</span>
                                 </label>
                             </div>
-                            <button type="submit" class="cta-primary" style="margin-top: 20px; width: 100%;">Enviar Resposta</button>
+                            
+                            <button type="submit" class="conversion-btn">
+                                Quero acompanhar o TBS
+                            </button>
                         </form>
+                        
+                        <div class="benefits-list">
+                            <div class="benefit-item">
+                                <span class="benefit-icon">📚</span>
+                                <span class="benefit-text">Materiais exclusivos de preparação</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">🎯</span>
+                                <span class="benefit-text">Dicas dos vencedores anteriores</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">⚡</span>
+                                <span class="benefit-text">Acesso antecipado às novidades</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -369,44 +390,65 @@
 
     <!-- CENÁRIO 5: REPROVADO ETAPA 2 -->
     <div id="rejected-p1" class="scenario">
-        <!-- Layout Fluido: Textos à esquerda, Conversão à direita -->
+        <!-- Layout Fluido: Conteúdo Principal -->
         <section class="rejected-layout-container">
-            <!-- Coluna da Esquerda - Conteúdo Principal -->
             <div class="rejected-content-column">
                 <div class="rejected-hero">
+                    <div class="reverb-icon">
+                        <img src="materiais/reverb.png" alt="Reverb" class="reverb-image">
+                    </div>
                     <h1 class="rejected-title">INFELIZMENTE, NÃO FOI DESSA VEZ.</h1>
                     <div class="rejected-text">
                         <p>A edição 2025 do The Best Speaker teve mais de XXXX inscrições. E você passou entre os 270. Agora, a disputa foi acirrada e foi muito difícil chegar aos 100 palestrantes que avançaram para a próxima fase. Dessa vez, sua palestra não foi classificada. Sentimos muito.</p>
+                        <p>Mas olha, já estamos começando o planejamento para o <strong>The Best Speaker 2026</strong>.</p>
+                        <p>E vamos ajudar todos os candidatos a se prepararem com antecedência.</p>
+                        <p>Se você quiser fazer parte desse movimento, assinale abaixo.</p>
+                        <p>Quem sabe, com um pouco mais de preparo e treinamento, sua palestra chegue mais longe ano que vem.</p>
                     </div>
                 </div>
-            </div>
-
-            <!-- Coluna da Direita - Box de Conversão -->
-            <div class="rejected-conversion-column">
-                <div class="conversion-box">
-                    <div class="conversion-content">
-                        <div class="conversion-text">
-                            <p>Mas olha, já estamos começando o planejamento para o <strong>The Best Speaker 2026</strong>.</p>
-                            <p>E vamos ajudar todos os candidatos a se prepararem com antecedência.</p>
-                            <p>Se você quiser fazer parte desse movimento, assinale abaixo.</p>
-                            <p>Quem sabe, com um pouco mais de preparo e treinamento, sua palestra chegue mais longe ano que vem.</p>
-                        </div>
-                        <form class="conversion-form" onsubmit="handleTBS2026OptIn(event)">
-                            <h4>Você quer contar com nosso auxílio e participar do TBS 2026?</h4>
-                            <div class="conversion-radio-group">
-                                <label class="conversion-radio-option">
-                                    <input type="radio" name="tbs2026" value="sim" required>
-                                    <span class="conversion-radio-custom"></span>
-                                    <span class="conversion-radio-text">Sim</span>
+                
+                <!-- Box de Conversão dentro da seção principal -->
+                <div class="conversion-card">
+                    <div class="conversion-header">
+                        <h3>🚀 Prepare-se para o TBS 2026!</h3>
+                        <p>Já estamos planejando a próxima edição e queremos te ajudar a se preparar melhor.</p>
+                    </div>
+                    
+                    <div class="conversion-body">
+                        <form class="conversion-form-simple" onsubmit="handleTBS2026OptIn(event)">
+                            <div class="form-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="tbs2026" value="sim" required checked>
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text">Sim, quero receber os materiais!</span>
                                 </label>
-                                <label class="conversion-radio-option">
+                                
+                                <label class="radio-option">
                                     <input type="radio" name="tbs2026" value="nao" required>
-                                    <span class="conversion-radio-custom"></span>
-                                    <span class="conversion-radio-text">Não</span>
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text">Não, obrigado</span>
                                 </label>
                             </div>
-                            <button type="submit" class="cta-primary" style="margin-top: 20px; width: 100%;">Enviar Resposta</button>
+                            
+                            <button type="submit" class="conversion-btn">
+                                Quero acompanhar o TBS
+                            </button>
                         </form>
+                        
+                        <div class="benefits-list">
+                            <div class="benefit-item">
+                                <span class="benefit-icon">📚</span>
+                                <span class="benefit-text">Materiais exclusivos de preparação</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">🎯</span>
+                                <span class="benefit-text">Dicas dos vencedores anteriores</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">⚡</span>
+                                <span class="benefit-text">Acesso antecipado às novidades</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -416,44 +458,65 @@
 
     <!-- CENÁRIO 6: REPROVADO ETAPA 3 -->
     <div id="rejected-p2" class="scenario">
-        <!-- Layout Fluido: Textos à esquerda, Conversão à direita -->
+        <!-- Layout Fluido: Conteúdo Principal -->
         <section class="rejected-layout-container">
-            <!-- Coluna da Esquerda - Conteúdo Principal -->
             <div class="rejected-content-column">
                 <div class="rejected-hero">
+                    <div class="reverb-icon">
+                        <img src="materiais/reverb.png" alt="Reverb" class="reverb-image">
+                    </div>
                     <h1 class="rejected-title">INFELIZMENTE, NÃO FOI DESSA VEZ.</h1>
                     <div class="rejected-text">
                         <p>A edição 2025 do The Best Speaker teve mais de XXXX inscrições, mas você passou entre os 270. Depois, se qualificou entre os 100. Agora, a disputa foi acirrada e foi muito difícil chegar aos 20 palestrantes que avançaram para a próxima fase. Dessa vez, sua palestra não foi classificada. Sentimos muito.</p>
+                        <p>Mas olha, já estamos começando o planejamento para o <strong>The Best Speaker 2026</strong>.</p>
+                        <p>E vamos ajudar todos os candidatos a se prepararem com antecedência.</p>
+                        <p>Se você quiser fazer parte desse movimento, assinale abaixo.</p>
+                        <p>Quem sabe, com um pouco mais de preparo e treinamento, sua palestra chegue mais longe ano que vem.</p>
                     </div>
                 </div>
-            </div>
-
-            <!-- Coluna da Direita - Box de Conversão -->
-            <div class="rejected-conversion-column">
-                <div class="conversion-box">
-                    <div class="conversion-content">
-                        <div class="conversion-text">
-                            <p>Mas olha, já estamos começando o planejamento para o <strong>The Best Speaker 2026</strong>.</p>
-                            <p>E vamos ajudar todos os candidatos a se prepararem com antecedência.</p>
-                            <p>Se você quiser fazer parte desse movimento, assinale abaixo.</p>
-                            <p>Quem sabe, com um pouco mais de preparo e treinamento, sua palestra chegue mais longe ano que vem.</p>
-                        </div>
-                        <form class="conversion-form" onsubmit="handleTBS2026OptIn(event)">
-                            <h4>Você quer contar com nosso auxílio e participar do TBS 2026?</h4>
-                            <div class="conversion-radio-group">
-                                <label class="conversion-radio-option">
-                                    <input type="radio" name="tbs2026" value="sim" required>
-                                    <span class="conversion-radio-custom"></span>
-                                    <span class="conversion-radio-text">Sim</span>
+                
+                <!-- Box de Conversão dentro da seção principal -->
+                <div class="conversion-card">
+                    <div class="conversion-header">
+                        <h3>🚀 Prepare-se para o TBS 2026!</h3>
+                        <p>Já estamos planejando a próxima edição e queremos te ajudar a se preparar melhor.</p>
+                    </div>
+                    
+                    <div class="conversion-body">
+                        <form class="conversion-form-simple" onsubmit="handleTBS2026OptIn(event)">
+                            <div class="form-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="tbs2026" value="sim" required checked>
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text">Sim, quero receber os materiais!</span>
                                 </label>
-                                <label class="conversion-radio-option">
+                                
+                                <label class="radio-option">
                                     <input type="radio" name="tbs2026" value="nao" required>
-                                    <span class="conversion-radio-custom"></span>
-                                    <span class="conversion-radio-text">Não</span>
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text">Não, obrigado</span>
                                 </label>
                             </div>
-                            <button type="submit" class="cta-primary" style="margin-top: 20px; width: 100%;">Enviar Resposta</button>
+                            
+                            <button type="submit" class="conversion-btn">
+                                Quero acompanhar o TBS
+                            </button>
                         </form>
+                        
+                        <div class="benefits-list">
+                            <div class="benefit-item">
+                                <span class="benefit-icon">📚</span>
+                                <span class="benefit-text">Materiais exclusivos de preparação</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">🎯</span>
+                                <span class="benefit-text">Dicas dos vencedores anteriores</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">⚡</span>
+                                <span class="benefit-text">Acesso antecipado às novidades</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
