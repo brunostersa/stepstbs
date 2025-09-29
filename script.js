@@ -483,3 +483,42 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+// ========================================
+// FUNCIONALIDADES DE VÍDEO
+// ========================================
+
+// Função para expandir vídeo
+function expandVideo(videoContainer) {
+    const iframe = videoContainer.querySelector('iframe');
+    if (!iframe) return;
+    
+    const videoModal = document.getElementById('videoModal');
+    const videoPlayer = document.getElementById('videoModalPlayer');
+    
+    if (videoModal && videoPlayer) {
+        // Copiar o iframe para o modal
+        const clonedIframe = iframe.cloneNode(true);
+        videoPlayer.innerHTML = '';
+        videoPlayer.appendChild(clonedIframe);
+        
+        // Mostrar o modal
+        videoModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+// Função para fechar o modal de vídeo
+function closeVideoModal() {
+    const videoModal = document.getElementById('videoModal');
+    if (videoModal) {
+        videoModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        
+        // Limpar o player
+        const videoPlayer = document.getElementById('videoModalPlayer');
+        if (videoPlayer) {
+            videoPlayer.innerHTML = '';
+        }
+    }
+}
