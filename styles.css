@@ -115,7 +115,6 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
-    padding-top: 80px; /* Compensar header fixo */
 }
 
 /* ========================================
@@ -273,7 +272,7 @@ body {
 .scenario {
     display: none;
     min-height: calc(100vh - 80px);
-    padding-top: 0;
+    padding-top: 80px;
 }
 
 .scenario.active {
@@ -338,7 +337,7 @@ body {
 
 #passed-270 .timeline-column,
 #passed-100 .timeline-column {
-    flex: 1;
+    flex: 0.8;
     padding: 40px;
     background: linear-gradient(135deg, 
         #f8fafc 0%, 
@@ -346,11 +345,14 @@ body {
         #f1f5f9 100%);
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #passed-270 .orientations-column,
 #passed-100 .orientations-column {
-    flex: 1;
+    flex: 1.2;
     padding: 40px;
     background: #2D2D2D;
     display: flex;
