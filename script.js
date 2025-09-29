@@ -522,3 +522,42 @@ function closeVideoModal() {
         }
     }
 }
+
+// Função para abrir imagens
+function downloadImage(imageType) {
+    // URLs das imagens
+    const imageUrls = {
+        'image1': 'materiais/img1.png',
+        'image2': 'materiais/img2.png'
+    };
+    
+    const imageUrl = imageUrls[imageType];
+    if (!imageUrl) {
+        console.error('Tipo de imagem não encontrado:', imageType);
+        return;
+    }
+    
+    // Detectar se é mobile
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+        // No mobile, abrir em nova aba para mostrar opções de compartilhar/salvar
+        window.open(imageUrl, '_blank');
+    } else {
+        // No desktop, abrir em nova aba
+        window.open(imageUrl, '_blank');
+    }
+    
+    // Feedback visual
+    const button = event.target.closest('.btn-download');
+    if (button) {
+        const originalText = button.querySelector('.download-text').textContent;
+        button.querySelector('.download-text').textContent = 'Abrindo...';
+        button.style.opacity = '0.7';
+        
+        setTimeout(() => {
+            button.querySelector('.download-text').textContent = originalText;
+            button.style.opacity = '1';
+        }, 1500);
+    }
+}

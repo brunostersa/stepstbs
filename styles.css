@@ -552,6 +552,70 @@ body {
     box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
 }
 
+/* Seção de download de imagens */
+.download-section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.download-title {
+    color: #F00091;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.download-description {
+    color: #ccc;
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.download-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-download {
+    background: linear-gradient(135deg, #F00091 0%, #FF69B4 100%);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(240, 0, 145, 0.3);
+    min-width: 140px;
+    justify-content: center;
+}
+
+.btn-download:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(240, 0, 145, 0.4);
+    background: linear-gradient(135deg, #FF69B4 0%, #F00091 100%);
+}
+
+.download-icon {
+    font-size: 16px;
+}
+
+.download-text {
+    font-size: 13px;
+    font-weight: 600;
+}
+
 .support-text {
     margin-top: 30px;
     text-align: left;
@@ -654,6 +718,7 @@ body {
         transform: scale(1) translateY(0);
     }
 }
+
 
 /* Estilos removidos - botões não são mais necessários */
 
@@ -954,7 +1019,7 @@ body {
 
 .passed-270-hero {
     background: 
-        linear-gradient(135deg, rgba(255, 107, 53, 0.8) 0%, rgba(247, 147, 30, 0.8) 100%),
+        linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.1) 100%),
         url('materiais/bg.jpg');
     background-size: cover;
     background-position: center;
@@ -962,6 +1027,7 @@ body {
     color: white;
     position: relative;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    overflow: hidden;
 }
 
 .passed-270-hero::before {
@@ -971,8 +1037,11 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>') repeat;
-    opacity: 0.4;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(240, 0, 145, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(212, 175, 55, 0.02) 0%, transparent 50%);
+    opacity: 0.6;
 }
 
 .passed-100-hero {
@@ -1030,8 +1099,12 @@ body {
     padding: 40px 100px 50px 100px;
     background: rgba(0, 0, 0, 0.1);
     border-radius: 16px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
     overflow: visible;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(240, 0, 145, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 /* Hero Flag */
@@ -1065,7 +1138,9 @@ body {
     font-weight: 800;
     margin-bottom: var(--spacing-xl);
     line-height: var(--line-height-tight);
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(139, 21, 56, 0.3);
+    text-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.5), 
+        0 8px 16px rgba(139, 21, 56, 0.3);
     text-transform: uppercase;
     letter-spacing: 0.02em;
     color: var(--color-text);
@@ -1089,7 +1164,6 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-    animation: numberGlow 3s ease-in-out infinite alternate;
 }
 
 /* Número 20 específico para Reality */
@@ -1097,25 +1171,25 @@ body {
     display: block;
     font-size: clamp(4rem, 8vw, 6rem);
     font-weight: 900;
-    color: #fff;
-    text-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 
+        0 0 30px rgba(255, 215, 0, 0.8),
+        0 0 60px rgba(255, 165, 0, 0.6),
+        0 0 90px rgba(255, 140, 0, 0.4),
+        0 4px 8px rgba(0, 0, 0, 0.3);
     margin: 40px 0 30px 0;
     line-height: 1.1;
     position: relative;
     overflow: visible;
     padding: 10px 0;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
 }
 
 /* Confetes animados - removido para usar o sistema dos cards */
 
-@keyframes numberGlow {
-    0% {
-        text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-    }
-    100% {
-        text-shadow: 0 0 30px rgba(212, 175, 55, 0.8);
-    }
-}
 
 .hero-subtitle {
     font-size: 1.25rem;
@@ -2557,6 +2631,27 @@ body {
         padding: 10px 20px;
         width: 100%;
         text-align: center;
+    }
+    
+    .download-section {
+        margin-top: 20px;
+    }
+    
+    .download-title {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+    
+    .download-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .btn-download {
+        width: 100%;
+        padding: 10px 16px;
+        font-size: 13px;
+        min-width: auto;
     }
     
     .hero-column {
